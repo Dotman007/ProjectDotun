@@ -1,0 +1,30 @@
+﻿@*@if(Request.IsAuthenticated) {
+    <text>Welcome <strong>@User.Identity.Name</strong>!
+    [ @Html.ActionLink("Log Off", "LogOff", "Account") ]</text>
+}
+else {
+    @:[ @Html.ActionLink("Log On", "LogOn", "Account") ]
+}*@
+<div class="dropdown">
+    @if (Request.IsAuthenticated)
+    {
+        if (Roles.IsUserInRole("Admin"))
+        {
+            <text> <strong style="color:royalblue">Welcome @User.Identity.Name</strong>!||
+            <strong style="color:royalblue"> @Html.ActionLink("Log Off", "LogOff", "Account")</strong> </text>
+        }
+        else
+        {
+            <text> <strong style="color:royalblue">Welcome @User.Identity.Name</strong>!||
+           @* <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <strong style="color:royalblue;">@Html.ActionLink("My Dashbourd", "MyProfile", "Guest")</strong>
+            </a>*@||
+            <strong style="color:royalblue"> @Html.ActionLink("Log Off", "LogOff", "Account")</strong> </text>
+        }
+    }
+
+    else
+    {
+        @:[ @Html.ActionLink("Log On", "LogOn", "Account") ]
+}
+</div>

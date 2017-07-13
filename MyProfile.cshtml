@@ -1,0 +1,61 @@
+﻿@model Agencies.Models.Guest
+
+@{
+    
+    ViewBag.Title = "MyProfile";
+    Layout = "~/Views/Shared/_LayoutProfile.cshtml";
+}
+
+<h2>MyProfile</h2>
+<table class="table">
+        <tr>
+            <td>First Name</td>
+            <td>@Html.DisplayFor(model => model.FirstName) </td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>
+                @Html.DisplayFor(model=>model.LastName)
+            </td>
+        </tr>
+        <tr>
+            <td>Location</td>
+            <td>@Html.DisplayFor(model => model.Location)</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>@Html.DisplayFor(model => model.Address)</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>@Html.DisplayFor(model => model.Email)</td>
+        </tr>
+         <tr>
+            <td>Mobile No</td>
+            <td>@Html.DisplayFor(model => model.MobileNo)</td>
+        </tr>
+         <tr>
+            <td>State Of Origin</td>
+            <td>@Html.DisplayFor(model => model.StateOfOrigin)</td>
+        </tr>
+        <tr>
+         <td>University</td>
+            <td>@Html.DisplayFor(model => model.TetiaryInstitutionAttended)</td>
+        </tr>
+        <tr>
+         <td>Date Of Birth</td>
+            <td>@Html.DisplayFor(model => model.DateOfBirth)</td>
+        <tr>
+         <td>Date Of Birth</td>
+            <td>@Html.DisplayFor(model => model.Gender)</td>
+        </tr>
+         <tr>
+    <td>Date Of Birth</td>
+            <td>@Html.DisplayFor(model => model.MaritalStatus)</td>
+        </tr>
+         <tr>
+    <td>Date Of Birth</td>
+            <td>@Html.DisplayFor(model => model.Religion)</td>
+        </tr>
+         
+    </table>

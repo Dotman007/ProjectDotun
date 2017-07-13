@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Agencies.Models.AgencyType>
+
+@{
+    ViewBag.Title = "AgencyCats";
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("AgencyCats", "AgencyType", FormMethod.Get ))
+{
+    <p style="text-align:center;color:blue;font-family:sans-serif">
+        <b >
+        Search by Field/Location</b>: @Html.TextBox("searchString") <br />
+        <input type="submit" class="btn btn-primary" value="Search" />
+    </p>
+}
+
+
+
+ @if(Model.Count()==0)
+   {
+       Response.Write("<script>alert('SORRY INVALID INPUT,PLEASE SUPPLY A VALID CITY/LOCATION OR AREA OF SPECIALIZATION OR FIELD!!!!!!')</script>");
+       
+   }
+    else
+    {
+
+    <table class="table table-striped" style="font-family:Aharoni;color:blue;">
+       <tr>
+           <th>Logo</th>
+        <th>
+            Description
+        </th>
+        <th>
+            Area Of Specialization
+        </th>
+       
+        <th></th>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+          <img src="@string.Format("/Uploads/{0}",@item.Image)" alt="@item.Image"  style="width:300px; height:200px;" />
+        </td>
+         <td>
+              @Html.Raw(item.Description)<br />
+        </td>
+        <td>
+            <strong>Agency Name:</strong>
+             @Html.DisplayFor(modelItem => item.AgencyTypeName)
+            <br />
+            <strong>Area Of Specialization:</strong>
+             @Html.DisplayFor(modelItem => item.AreaOfSpecialization)<br />
+           <strong>Location:</strong>
+             @Html.DisplayFor(modelItem => item.Location)<br />
+            
+           
+            
+           
+             @Html.ActionLink("View Available Jobs", "Agencys", "Agency", new { id=item.AgencyTypeId},null)
+        </td>
+       
+    </tr>
+}
+
+</table>
+ }
+
+
+

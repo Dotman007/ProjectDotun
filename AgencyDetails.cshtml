@@ -1,0 +1,79 @@
+﻿@model Agencies.Models.Agency
+
+@{
+    ViewBag.Title = "AgencyDetails";
+ Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="span12">
+    <h3 class="well" style="text-align:center">Selected Job Details</h3>
+    <table class="table table-striped table-bordered">
+    <tr>
+        <td>
+            <img src="@string.Format("/Uploads/{0}",@Model.Logo)" alt="@Model.Logo" class="span12" style="height:500px;"/>
+           </td>
+    </tr>
+    <tr>
+        <td style="font-family:Verdana;font-size:large">
+           <strong>Agency Name</strong> 
+            <br />
+             @Html.DisplayFor(model => model.AgencyName)
+            <br />
+            <strong>Agency Number</strong>
+            <br />
+            @Html.DisplayFor(model => model.AgencyNumber)
+            <br />
+            <strong>Vacancy</strong><br />
+           @Html.DisplayFor(model => model.Job)<br />
+       
+        <strong>Area Of Specialization</strong> 
+            <br />
+             @Html.DisplayFor(model => model.Field)
+            <br />
+
+            @*<strong>Description</strong> 
+            <br />
+             @Html.DisplayFor(model => model.Description)
+            <br />*@
+            <strong>Qualification Required/Competency</strong> 
+            <br />
+             @Html.DisplayFor(model => model.Qualification)
+            <br />
+            <strong>Level</strong> 
+            <br />
+             @Html.DisplayFor(model => model.Level)
+            <br />
+            <strong>Skill</strong> 
+            <br />
+             @Html.DisplayFor(model => model.Skill)
+            <br />
+            <strong>Employer/Company Name</strong>
+            <br />
+            @Html.DisplayFor(model => model.EmployerName)
+            <br />
+            <strong>Company Description</strong><br />
+           @Html.DisplayFor(model => model.CompanyDescription)<br />
+             <strong>AgencyWebsite</strong> 
+            <br />
+            <a href="#">
+             @Html.DisplayFor(model => model.AgencyWebsite)</a>
+            <br />
+            <strong>CompanyWebsite</strong> 
+            <br />
+            <a href="#">
+             @Html.DisplayFor(model => model.CompanyWebsite)</a>
+            <br />
+
+
+
+          </td>   
+    </tr>
+</table>
+    </div>
+<table class="table table-striped table-bordered">
+<p style="font-family:Verdana;font-size:x-large;text-align:center">
+    @Html.ActionLink("Apply", "Create","Guest", new { id=Model.AgencyId },null) 
+    @*@Html.ActionLink("Cancel RoomReservation", "Cancel","RoomReservation", new { id=Model.AgencyId },null) *@
+  
+</p>
+    </table>
